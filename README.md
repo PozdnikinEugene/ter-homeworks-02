@@ -96,7 +96,9 @@ commands will detect it and remind you to do so if necessary.
 
 #### Проблема 2 
 
-```
+Ошибка Platform "standart-v4" not found
+
+```HCL
 ╷
 │ Error: Error while requesting API to create instance: x-request-id = fe9c337f-f8ff-4179-b39f-9260e2472ea6 x-server-trace-id = 13003841aea48022:e8da9ed5c4d0d172:455589b9ca5c0cd5:1 x-client-trace-id = 4628f949-af80-4589-bf41-23637345d24d rpc error: code = FailedPrecondition desc = Platform "standart-v4" not found
 │ 
@@ -106,8 +108,25 @@ commands will detect it and remind you to do so if necessary.
 │ 
 ╵
 ```
+Тут 2 ошибки 
+Первая орфографическая (опечатка) `standart` пишется с буквой `d` на конце - правильно `standard`
 
-[1-4](img/1-4.png)
+Ошибка та же самая но суть очень другая.
+
+```PowerShell
+╷
+│ Error: Error while requesting API to create instance: x-request-id = e1716a9c-8adb-4833-8027-fe8ec5b581fe x-server-trace-id = fcc37b2cfef63b9e:e9b2213b9754414c:3a8118c4b3ae71ac:1 x-client-trace-id = 7ed53451-8532-48ca-98ec-46d64d178b34 rpc error: code = FailedPrecondition desc = Platform "standard-v4" not found
+│ 
+│   with yandex_compute_instance.platform,
+│   on main.tf line 15, in resource "yandex_compute_instance" "platform":
+│   15: resource "yandex_compute_instance" "platform" {
+│ 
+╵
+```
+
+[Можно узнать из докумантации](https://yandex.cloud/ru/docs/compute/concepts/vm-platforms)
+
+! [1-4](img/1-4.png)
 
 ---
 
