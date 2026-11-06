@@ -109,9 +109,10 @@ commands will detect it and remind you to do so if necessary.
 ╵
 ```
 Тут 2 ошибки 
+
 Первая орфографическая (опечатка) `standart` пишется с буквой `d` на конце - правильно `standard`
 
-Ошибка та же самая но суть очень другая.
+Далее после этого исправления снова ошибка та же самая но суть очень другая.
 
 ```PowerShell
 ╷
@@ -123,10 +124,56 @@ commands will detect it and remind you to do so if necessary.
 │ 
 ╵
 ```
+Вторая ошибка логическая - `standard-v4` не существует
 
-[Можно узнать из докумантации](https://yandex.cloud/ru/docs/compute/concepts/vm-platforms)
+Что вообще такое эти ваши standardы? Этот параметр отвечает за выбор мощности путем выбора процессора среди стандартных платформ (не высокроизводительных и не с ГПУ).
+
+[Подробнее можно узнать из документации](https://yandex.cloud/ru/docs/compute/concepts/vm-platforms)
+
+Вот краткая выдержка по standardтам
 
 ![1-4](img/1-4.png)
+
+Нужно выбрать другой.
+
+Сразу вопрос а какой? Любой? Не любой.
+
+Кажется ближе всего standard-v4a. Я уже знаю что это не правильно, но я должен это доказать.
+
+Ошибка 3 (опционально)
+
+Ошибка говорит что в standard-v4a не позволяет использовать `core fraction` отличный от 20, 50, 100
+
+```Sh
+╷
+│ Error: Error while requesting API to create instance: x-request-id = a4b1ccd1-3fa8-4fb9-98d5-8d80b24d4e9f x-server-trace-id = 548aca9cb5990792:9ace18afa781e1d2:51f44b32a49978ea:1 x-client-trace-id = 026dbb06-fc7e-48f1-a252-e6a9b8a634bc rpc error: code = InvalidArgument desc = the specified core fraction is not available on platform "standard-v4a"; allowed core fractions: 20, 50, 100
+│ 
+│   with yandex_compute_instance.platform,
+│   on main.tf line 15, in resource "yandex_compute_instance" "platform":
+│   15: resource "yandex_compute_instance" "platform" {
+│ 
+╵
+```
+Почему он так говорит? Потому что у нас указано `core_fraction = 5`
+
+Ищем для нас подходящую платформу.
+
+При создании ВМ в вычислительных ресурсах выбираем ту платформу где начинает отображаться Гарантированная доля vCPU (он же core_fraction) 5%
+
+Определяем что это за платформа 
+
+Я нашел 2 способа как это увидеть 
+
+Первый - (назовем его современный) наводимся на вопрос возле `Гарантированная доля vCPU` жмем `Спросить AI`
+![1-5](img/1-5.png)
+
+
+Второй - (назовем его инженерный) выбираем нужный праметр и идем вниз страницы жмем на кнопку Генерация кода  ![1-6](img/1-6.png)
+Затем в блоке Terraform находим   platform_id = "standard-v2" это нужное нам значение.
+
+![1-7](img/1-7.png)
+
+
 
 ---
 
