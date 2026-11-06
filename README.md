@@ -98,7 +98,7 @@ commands will detect it and remind you to do so if necessary.
 
 Ошибка Platform "standart-v4" not found
 
-```HCL
+```Sh
 ╷
 │ Error: Error while requesting API to create instance: x-request-id = fe9c337f-f8ff-4179-b39f-9260e2472ea6 x-server-trace-id = 13003841aea48022:e8da9ed5c4d0d172:455589b9ca5c0cd5:1 x-client-trace-id = 4628f949-af80-4589-bf41-23637345d24d rpc error: code = FailedPrecondition desc = Platform "standart-v4" not found
 │ 
@@ -126,7 +126,7 @@ commands will detect it and remind you to do so if necessary.
 
 [Можно узнать из докумантации](https://yandex.cloud/ru/docs/compute/concepts/vm-platforms)
 
-! [1-4](img/1-4.png)
+![1-4](img/1-4.png)
 
 ---
 
