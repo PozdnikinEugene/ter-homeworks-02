@@ -24,6 +24,27 @@
 
 ### Задание 1
 
+
+
+
+
+```HCL
+PS C:\Users\Eugene\hwtf\ter-homeworks\02\src> terraform init
+Initializing the backend...
+Initializing provider plugins...
+- Finding latest version of yandex-cloud/yandex...
+╷
+│ Error: Failed to query available provider packages
+│ 
+│ Could not retrieve the list of available versions for provider yandex-cloud/yandex: failed to query provider mirror https://terraform-registry-mirror.ru/ for registry.terraform.io/yandex-cloud/yandex: the request failed after 2
+│ attempts, please try again later: Get "https://terraform-registry-mirror.ru/registry.terraform.io/yandex-cloud/yandex/index.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+│ 
+│ To see which modules are currently depending on yandex-cloud/yandex and what versions are specified, run the following command:
+│     terraform providers
+```
+
+
+
 `Приведите ответ в свободной форме........`
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
