@@ -27,7 +27,7 @@
 
 
 
-Проблема 1 
+#### Проблема 1 
 ```HCL
 PS C:\Users\Eugene\hwtf\ter-homeworks\02\src> terraform init
 Initializing the backend...
@@ -94,26 +94,20 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+#### Проблема 2 
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+╷
+│ Error: Error while requesting API to create instance: x-request-id = fe9c337f-f8ff-4179-b39f-9260e2472ea6 x-server-trace-id = 13003841aea48022:e8da9ed5c4d0d172:455589b9ca5c0cd5:1 x-client-trace-id = 4628f949-af80-4589-bf41-23637345d24d rpc error: code = FailedPrecondition desc = Platform "standart-v4" not found
+│ 
+│   with yandex_compute_instance.platform,
+│   on main.tf line 15, in resource "yandex_compute_instance" "platform":
+│   15: resource "yandex_compute_instance" "platform" {
+│ 
+╵
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
-
+[1-4](img/1-4.png)
 
 ---
 
