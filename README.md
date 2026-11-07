@@ -245,7 +245,7 @@ commands will detect it and remind you to do so if necessary.
 
 ### Задание 3
 
-К сожалению зона `b` не доступна. Буду использовать `b`
+К сожалению зона `b` не доступна. Буду использовать `d`
 
 ![3-1](img/3-1.png)
 
