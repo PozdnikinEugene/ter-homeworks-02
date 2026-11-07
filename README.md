@@ -165,15 +165,21 @@ commands will detect it and remind you to do so if necessary.
 Я нашел 3 способа как это увидеть   
 
 Первый - (назовем его современный) наводимся на вопрос возле `Гарантированная доля vCPU` жмем `Спросить AI`
+<details>
+  <summary> Первый </summary>
+
 ![1-5](img/1-5.png)
 
+</details>
 
 Второй - (назовем его инженерный) выбираем нужный праметр и идем вниз страницы жмем на кнопку Генерация кода  
+<details>
+  <summary> Второй </summary>
 ![1-6](img/1-6.png)
 Затем в блоке Terraform находим   platform_id = "standard-v2" это нужное нам значение.
 
 ![1-7](img/1-7.png)
-
+</details>
 Третий (самый не очевидный) - [смотрим в документации ](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
 
 ![1-7-1](img/1-7-1.png)
@@ -195,7 +201,7 @@ commands will detect it and remind you to do so if necessary.
 Решение так же [находим в документации ](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
 Доступные конфигурации
 ![1-8-1](img/1-8-1.png)
-Как видно ни одна конфигурация не допускает `cores = 1`. Укажу `cores = 2`\
+Как видно ни одна конфигурация не допускает `cores = 1`. Укажу `cores = 2`\\
 
 ---
 
