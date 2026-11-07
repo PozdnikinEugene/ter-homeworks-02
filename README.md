@@ -180,6 +180,7 @@ commands will detect it and remind you to do so if necessary.
 Второй - (назовем его инженерный) выбираем нужный праметр и идем вниз страницы жмем на кнопку Генерация кода  
 <details>
   <summary> Второй </summary>
+   
 ![1-6](img/1-6.png)
 Затем в блоке Terraform находим   platform_id = "standard-v2" это нужное нам значение.
 
