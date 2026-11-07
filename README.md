@@ -27,7 +27,8 @@
 
 
 
-#### Проблема 1 
+#### Проблема при инициализации 
+
 ```HCL
 PS C:\Users\Eugene\hwtf\ter-homeworks\02\src> terraform init
 Initializing the backend...
@@ -57,7 +58,8 @@ provider_installation {
 }
 
 ```
-
+<details>
+  <summary> Решено </summary>
 
 ```PowerShell
 PS C:\Users\Eugene\hwtf\ter-homeworks\02\src> terraform init                                                                                                      
@@ -93,8 +95,10 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
+</details>
+---
 
-#### Проблема 2 
+#### Проблемы конфигурации 
 
 Ошибка Platform "standart-v4" not found
 
@@ -140,7 +144,8 @@ commands will detect it and remind you to do so if necessary.
 
 Кажется ближе всего standard-v4a. Я уже знаю что это не правильно, но я должен это доказать.
 
-Ошибка 3 (опционально)
+---
+#### Ошибка 3
 
 Ошибка говорит что в standard-v4a не позволяет использовать `core fraction` отличный от 20, 50, 100
 
@@ -185,7 +190,7 @@ commands will detect it and remind you to do so if necessary.
 ![1-7-1](img/1-7-1.png)
 
 ---
-#### Ошибка 
+#### Ошибка 4
 
 Не правильно задано количество ядер. Платформа в моей конфигурации позволяет использовать 2 или 4 ядра. У нас ядра  `cores = 1` 
 ```
