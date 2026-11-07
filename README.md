@@ -207,8 +207,10 @@ commands will detect it and remind you to do so if necessary.
 ```
 Решение так же [находим в документации ](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
 Доступные конфигурации
+
 ![1-8-1](img/1-8-1.png)
-Как видно ни одна конфигурация не допускает `cores = 1`. Укажу `cores = 2`\\
+
+Как видно ни одна конфигурация не допускает `cores = 1`. Укажу `cores = 2`
 
 ---
 
