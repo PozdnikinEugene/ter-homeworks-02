@@ -265,6 +265,8 @@ commands will detect it and remind you to do so if necessary.
 
 ![3-2](img/3-5.png)
 
+Ниже в листинге указан не действующий ключ а сделанный для демонстрации. Ключ лучше хранить в переменных окружения и никому не показывать. 
+
 <details>
   <summary> Листинг vms_platform.tf </summary>
 
