@@ -96,6 +96,7 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 </details>
+
 ---
 
 #### Проблемы конфигурации 
