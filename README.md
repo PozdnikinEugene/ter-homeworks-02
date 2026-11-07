@@ -248,7 +248,12 @@ commands will detect it and remind you to do so if necessary.
 ![3-2](img/3-1.png)
 
 ```
-# yandex_compute_instance.platform_db will be created
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.platform_db will be created
   + resource "yandex_compute_instance" "platform_db" {
       + created_at                = (known after apply)
       + folder_id                 = (known after apply)
@@ -268,7 +273,7 @@ commands will detect it and remind you to do so if necessary.
       + platform_id               = "standard-v2"
       + reserved_instance_pool_id = (known after apply)
       + status                    = (known after apply)
-      + zone                      = "ru-central1-b"
+      + zone                      = "ru-central1-d"
 
       + boot_disk {
           + auto_delete = true
@@ -327,10 +332,11 @@ commands will detect it and remind you to do so if necessary.
           + "10.0.2.0/24",
         ]
       + v6_cidr_blocks = (known after apply)
-      + zone           = "ru-central1-b"
+      + zone           = "ru-central1-d"
     }
 
-Plan: 2 to add, 1 to change, 0 to destroy.
+Plan: 2 to add, 0 to change, 0 to destroy.
+
 ```
 
 
