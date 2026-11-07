@@ -186,7 +186,8 @@ commands will detect it and remind you to do so if necessary.
 
 ![1-7](img/1-7.png)
 </details>
-Третий (самый не очевидный) - [смотрим в документации ](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
+
+Третий (самый не очевидный) - [смотрим в документации](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
 
 ![1-7-1](img/1-7-1.png)
 
