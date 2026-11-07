@@ -441,6 +441,143 @@ variable "vm_db_name" {
 ![5](img/5-1.png)
 
 
+### Задание 6
+Переменные для ВМ
 
+```
+variable "vms_resources" {
+  type = map(object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+  }))
+  description = "Ресурсы ВМ (cores, memory, core_fraction) для каждой машины"
+  default = {
+    web = {
+      cores         = 2
+      memory        = 1
+      core_fraction = 5
+    }
+    db = {
+      cores         = 2
+      memory        = 2
+      core_fraction = 20
+    }
+  }
+}
+```
 
+Переменные для метадата
+
+```
+variable "vms_metadata" {
+  type = map(object({
+    serial-port-enable = number
+    ssh-keys           = string
+  }))
+  sensitive = true 
+  description = "Общие metadata для всех ВМ: serial-port-enable и ssh-keys"
+  default = {
+    common = {
+      serial-port-enable = 1
+      ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+NoSFIXClDALTp33swxFZS6Bgui5VHN/iQSyvGMhrp ubuntu@fhm7nbs81ne1s0kkgej1"
+    }
+  }
+}
+```
+
+Изменения в main.tf для db
+
+```
+  resources {
+    cores         = var.vms_resources.db.cores
+    memory        = var.vms_resources.db.memory
+    core_fraction = var.vms_resources.db.core_fraction
+  }
+
+```
+Изменения в main.tf для web
+
+```
+  resources {
+    cores         = var.vms_resources.web.cores
+    memory        = var.vms_resources.web.memory
+    core_fraction = var.vms_resources.web.core_fraction
+  }
+```
+
+Изменения в main.tf у обоих ВМ
+
+```
+  metadata = {
+    serial-port-enable = var.vms_metadata.common["serial-port-enable"]
+    ssh-keys           = var.vms_metadata.common["ssh-keys"]
+  }
+```
+
+<details>
+  <summary> Закоментровал </summary>
+
+```
+# Для db resources
+/*
+variable "vm_db_resources" {
+  type = object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+  })
+  default = {
+    cores         = 2
+    memory        = 2
+    core_fraction = 20
+  }
+  description = "Compute resources for the web instance"
+}*/
+# Для web resources
+/*
+variable "vm_web_resources" {
+  type = object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+  })
+  default = {
+    cores         = 2
+    memory        = 1
+    core_fraction = 5
+  }
+  description = "Compute resources for the web instance"
+}*/
+
+# Ssh
+/*
+variable "vms_ssh_root_key" {
+  type        = string
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+NoSFIXClDALTp33swxFZS6Bgui5VHN/iQSyvGMhrp ubuntu@fhm7nbs81ne1s0kkgej1"
+  description = "ssh-keygen -t ed25519"
+  sensitive   = true
+}*/
+
+```
+
+</details>
+
+Проверяю 
+![6](img/6-1.png)
+
+Предупреждение что `serial-port-enable` становится `sensitive` 
+
+В Terraform нельзя пометить sensitive отдельное поле object внутри map(object); можно либо всю переменную, либо использовать nonsensitive()/sensitive() в locals.
+
+Пример 
+
+```
+locals {
+  vm_metadata = {
+    serial-port-enable = var.vms_metadata.common["serial-port-enable"]
+    ssh-keys           = sensitive(var.vms_metadata.common["ssh-keys"])
+  }
+}
+```
 
