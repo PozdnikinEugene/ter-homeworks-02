@@ -162,18 +162,40 @@ commands will detect it and remind you to do so if necessary.
 
 Определяем что это за платформа 
 
-Я нашел 2 способа как это увидеть 
+Я нашел 3 способа как это увидеть   
 
 Первый - (назовем его современный) наводимся на вопрос возле `Гарантированная доля vCPU` жмем `Спросить AI`
 ![1-5](img/1-5.png)
 
 
-Второй - (назовем его инженерный) выбираем нужный праметр и идем вниз страницы жмем на кнопку Генерация кода  ![1-6](img/1-6.png)
+Второй - (назовем его инженерный) выбираем нужный праметр и идем вниз страницы жмем на кнопку Генерация кода  
+![1-6](img/1-6.png)
 Затем в блоке Terraform находим   platform_id = "standard-v2" это нужное нам значение.
 
 ![1-7](img/1-7.png)
 
+Третий (самый не очевидный) - [смотрим в документации ](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
 
+![1-7-1](img/1-7-1.png)
+
+---
+#### Ошибка 
+
+Не правильно задано количество ядер. Платформа в моей конфигурации позволяет использовать 2 или 4 ядра. У нас ядра  `cores = 1` 
+```
+╷
+│ Error: Error while requesting API to create instance: x-request-id = fbdf3579-30cd-4a8f-96ce-dfc52dddcfe7 x-server-trace-id = 204179c9037ee28f:0db84cc9380afbf8:4dee0064b3ac2e4b:1 x-client-trace-id = 6553776e-71cd-4f29-83cc-31cee975cefa rpc error: code = InvalidArgument desc = the specified number of cores is not available on platform "standard-v2"; allowed core number: 2, 4
+│ 
+│   with yandex_compute_instance.platform,
+│   on main.tf line 15, in resource "yandex_compute_instance" "platform":
+│   15: resource "yandex_compute_instance" "platform" {
+│ 
+╵
+```
+Решение так же [находим в документации ](https://yandex.cloud/ru/docs/compute/concepts/performance-levels) 
+Доступные конфигурации
+![1-8-1](img/1-8-1.png)
+Как видно ни одна конфигурация не допускает `cores = 1`. Укажу `cores = 2`\
 
 ---
 
