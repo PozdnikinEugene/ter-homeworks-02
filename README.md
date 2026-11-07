@@ -400,6 +400,47 @@ terraform output
 ![4-1](img/4-1.png)
 
 ### Задание 5
+Вношу в файл locals.tf
+
+```
+locals {
+  vm_web_name_local = "${ var.company_name }-${ var.env }-${ var.vm_web_name }"
+  vm_db_name_local = "${ var.company_name }-${ var.env }-${ var.vm_db_name }"
+}
+```
+
+Добавляю переменные.
+```
+variable "company_name" {
+  type        = string
+  default     = "netology"
+}
+variable "env" {
+  type = string
+  default = "develop"
+}
+
+```
+Делаю короткое имя в переменных ВМ 
+
+```
+variable "vm_web_name" {
+  type        = string
+  default     = "platform-web"
+}
+variable "vm_db_name" {
+  type        = string
+  default     = "platform-db"
+}
+```
+
+Меняю имена ВМ в `resource` в файле `main.tf` на значения из local - `local.vm_web_name_local` и `local.vm_db_name_local`
+ 
+Применяю 
+
+![5](img/5-1.png)
+
+
 
 
 
