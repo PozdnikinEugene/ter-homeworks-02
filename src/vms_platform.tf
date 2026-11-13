@@ -26,13 +26,13 @@ variable "d_cidr" {
 }
 
 ###ssh vars
-/*
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-key"
-  description = "ssh-keygen -t ed25519"
-  sensitive   = true
-}*/
+#/*
+#variable "vms_ssh_root_key" {
+#  type        = string
+#  default     = "ssh-key"
+#  description = "ssh-keygen -t ed25519"
+#  sensitive   = true
+#}*/
 
 # Мои изменения 
 # Образ
@@ -53,20 +53,20 @@ variable "vm_web_platform_id" {
   default     = "standard-v2"
   description = "The type of virtual machine to create"
 }
-/*
-variable "vm_web_resources" {
-  type = object({
-    cores         = number
-    memory        = number
-    core_fraction = number
-  })
-  default = {
-    cores         = 2
-    memory        = 1
-    core_fraction = 5
-  }
-  description = "Compute resources for the web instance"
-}*/
+#/*
+#variable "vm_web_resources" {
+#  type = object({
+#    cores         = number
+#    memory        = number
+#    core_fraction = number
+#  })
+#  default = {
+#    cores         = 2
+#    memory        = 1
+#    core_fraction = 5
+#  }
+#  description = "Compute resources for the web instance"
+#}*/
 
 variable "vm_web_preemptible" {
   type        = bool
@@ -92,20 +92,20 @@ variable "vm_db_platform_id" {
   default     = "standard-v2"
   description = "The type of virtual machine to create"
 }
-/*
-variable "vm_db_resources" {
-  type = object({
-    cores         = number
-    memory        = number
-    core_fraction = number
-  })
-  default = {
-    cores         = 2
-    memory        = 2
-    core_fraction = 20
-  }
-  description = "Compute resources for the web instance"
-}*/
+#/*
+#variable "vm_db_resources" {
+#  type = object({
+#    cores         = number
+#    memory        = number
+#    core_fraction = number
+#  })
+#  default = {
+#    cores         = 2
+#    memory        = 2
+#    core_fraction = 20
+#  }
+#  description = "Compute resources for the web instance"
+#}*/
 
 variable "vm_db_preemptible" {
   type        = bool
